@@ -15,3 +15,8 @@ https://drive.google.com/drive/folders/1XaFM8BJFligrqeQdE-_5Id0V_SubJAZe
 Create a folder inside dataset called single_prediction and put a image of a dog or a cat of your preference
 
 Run the cnn.py
+
+Pay atention to this part of code, change this to increase acurancy.
+steps_per_epoch = 2000,
+epochs = 3,
+validation_steps = 1000)
