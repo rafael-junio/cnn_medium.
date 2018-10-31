@@ -1,4 +1,4 @@
-# cnn_medium.
+# Convolutional neural network from venkateshtata with simple modifications to use it more easily
 A simple binary classifier to predict if the given image is a cat or a dog.
 
 # Installing Theano (NÃO NECESSÁRIO)
