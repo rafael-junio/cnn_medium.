@@ -5,14 +5,22 @@ from keras.models import load_model
 
 classifier = Sequential()
 classifier = load_model('model.h5')
-test_image = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
-test_image = image.img_to_array(test_image)
-test_image = np.expand_dims(test_image, axis = 0)
-result = classifier.predict(test_image)
-if result[0][0] == 1:
-    prediction = 'dog'
-else:
-    prediction = 'cat'
+test_array = [image.load_img('dataset/single_prediction/1.jpg', target_size = (64,64)),
+			  image.load_img('dataset/single_prediction/2.jpg', target_size = (64,64)),
+			  image.load_img('dataset/single_prediction/3.jpg', target_size = (64,64)),
+			  image.load_img('dataset/single_prediction/4.jpg', target_size = (64,64)),
+			  image.load_img('dataset/single_prediction/5.jpg', target_size = (64,64))]
 
-print ('The image has a...')
-print (prediction)
+for x in range(0,5):
+	test_array[x] = image.img_to_array(test_array[x])
+
+for x in range(0,5):
+	test_array[x] = np.expand_dims(test_array[x], axis = 0)
+
+for x in range(0,5):
+	result = classifier.predict(test_array[x])
+	print('Result ', x, 'output ', result[0][0])
+	if result[0][0] == 1:
+		print('dog')
+	else:
+		print('cat')
